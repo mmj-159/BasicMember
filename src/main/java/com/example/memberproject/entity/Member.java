@@ -20,4 +20,8 @@ public class Member {
     public Member(String name) {
         this.name = name;
     }
+
+    public void update(String name) {
+        this.name = name;
+    }
 }
