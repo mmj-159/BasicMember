@@ -6,4 +6,8 @@ import lombok.Getter;
 public class MemberRequestDto {
 
     private String name;
+
+    public MemberRequestDto(String name) {
+        this.name = name;
+    }
 }
