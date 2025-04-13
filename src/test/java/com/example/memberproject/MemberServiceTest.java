@@ -118,6 +118,6 @@ class MemberServiceTest {
         // when & then
         assertThatThrownBy(() -> memberService.deleteById(1L))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("id에 해당하는게 없단다~");
+                .hasMessageContaining("id에 해당하는게 없다니까");
     }
 }
