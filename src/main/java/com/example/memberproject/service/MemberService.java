@@ -33,6 +33,7 @@ public class MemberService {
         for (Member member : members) {
             MemberResponseDto dto = new MemberResponseDto(member.getId(), member.getName());
             dtos.add(dto);
+
         }
         return dtos;
     }
@@ -40,7 +41,7 @@ public class MemberService {
     @Transactional
     public MemberResponseDto findById(Long id){
         Member member = memberRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("id에 해당하는 멤버 없음")
+                () -> new IllegalArgumentException("id에 해당하는 멤버가 없습니다.")
         );
         return new MemberResponseDto(member.getId(), member.getName());
     }
@@ -48,7 +49,7 @@ public class MemberService {
     @Transactional
     public MemberResponseDto update(Long id, MemberRequestDto dto) {
         Member member = memberRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("id에 해당하는 멤버 없음!")
+                () -> new IllegalArgumentException("id에 해당하는 멤버가 뭉탱이로 있다가 유링게슝.")
         );
 
         member.update(dto.getName());
@@ -59,7 +60,7 @@ public class MemberService {
     @Transactional
     public void deleteById(Long id) {
         if (!memberRepository.existsById(id)) {
-            throw new IllegalArgumentException("id에 해당하는게 없단다~");
+            throw new IllegalArgumentException("id에 해당하는게 없다니까");
         }
 
         memberRepository.deleteById(id);
