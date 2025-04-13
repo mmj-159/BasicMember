@@ -1,0 +1,28 @@
+name: Java CI with Gradle
+
+on:
+  push:
+    branches: [ main ]   # main 브랜치에 push될 때만 작동
+  pull_request:
+    branches: [ main ]   # main 브랜치에 PR 날리면 작동
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Set up JDK 17  # (혹시 JDK 버전 다르면 여기 수정해야 함)
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Grant execute permission for Gradle Wrapper
+      run: chmod +x gradlew
+
+    - name: Build with Gradle
+      run: ./gradlew clean build
